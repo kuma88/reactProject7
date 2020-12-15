@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from "react-native";
 
-const BUSSTOP_URL = "https://arrivelah2.busrouter.sg/?id=" + BUSSTOP_NUMBER;
 const BUSSTOP_NUMBER = "84231";
 const LOADING_INTERVAL = 60000;
 const BUS_NUMBER = "14";
+const BUSSTOP_URL = "https://arrivelah2.busrouter.sg/?id=" + BUSSTOP_NUMBER;
 
 
 export default function App() {
@@ -20,7 +20,6 @@ export default function App() {
         const myBus = responseData.services.filter(
           (item) => item.no === BUS_NUMBER
           )[0];
-
           //console.log(myBus);
           const duration_s = Math.floor(myBus.next.duration_ms / 1000)
           const minutes = Math.floor(duration_s / 60)
